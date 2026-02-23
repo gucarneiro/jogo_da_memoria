@@ -11,7 +11,7 @@ function virarCarta(cartaClicada){
 
     const valorCarta = Number(cartaClicada.dataset.numero);
 
-     cartaClicada.classList.add('virada')    
+     cartaClicada.classList.add('virada')//vira a carta para o jogar ver oq é    
     
     if (valorCarta === cartaAtual){
         cartaAtual++;
@@ -23,7 +23,14 @@ function virarCarta(cartaClicada){
         bloquearTabuleiro = true;
 
         setTimeout(() => {
-            cartaClicada.classList.remove('virada');
+            const todasCartas = document.querySelectorAll('.carta');
+
+            todasCartas.forEach(carta => {
+                carta.classList.remove('virada');
+            });
+
+            cartaAtual = 1;
+
             bloquearTabuleiro = false;
         }, 600);
     }
