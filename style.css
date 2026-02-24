@@ -1,18 +1,24 @@
 .tabuleiro {
     display: grid;
-    /* Criamos 5 colunas de 100px para caber suas 10 cartas */
-    grid-template-columns: repeat(5, 100px); 
-    gap: 15px;
+    /* Mudamos de 100px para 1fr para as colunas dividirem o espaço igualmente */
+    grid-template-columns: repeat(5, 1fr); 
+    /* Gap flexível baseado na largura da tela */
+    gap: 2vw; 
     justify-content: center;
-    margin: 50px auto;
+    /* Centraliza e dá uma largura máxima para não esticar demais no monitor */
+    margin: 30px auto;
+    width: 95%;
+    max-width: 600px; 
 }
 
 .carta {
-    width: 100px;
-    height: 140px;
+    /* Removido width fixo para usar o espaço do grid */
+    width: 100%; 
+    /* Proporção da carta (2 de largura para 2.8 de altura) */
+    aspect-ratio: 2 / 2.8; 
     position: relative;
     transform-style: preserve-3d;
-    transition: transform 0.6s; /* Velocidade da animação */
+    transition: transform 0.6s;
     cursor: pointer;
 }
 
@@ -55,17 +61,56 @@ button{
     transition: 0.4s;
     color: white;
     background-color: #2c3e50;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    margin: auto;
 }
 
 .texto {
-    font-size: 3em;
+    /* Ajustado para não sumir ou quebrar no celular */
+    font-size: clamp(1.5em, 8vw, 3em);
     font-family: ubuntu, sans-serif;
-    border: #2c3e50;
     background-color: #2c3e50;
-    width: 30%;
+    /* Ajustamos de 30% para fit-content para o fundo 'abraçar' o texto */
+    width: fit-content; 
+    margin: 20px auto;
     text-align: center;
-    align-items: center;
     border-radius: 20px;
-    padding: 15px;
+    padding: 15px 30px;
     color: white;
+}
+
+.botao_teste {
+    display: inline-flex;    /* ESSENCIAL: Faz o link aceitar altura e largura de botão */
+    align-items: center;     /* Centraliza o texto verticalmente */
+    justify-content: center;  /* Centraliza o texto horizontalmente */
+    
+    text-decoration: none;   /* REMOVE o sublinhado do link */
+    
+    padding: 15px 25px;
+    background-color: #2c3e50;
+    color: white;
+    border-radius: 25px;
+    font-family: ubuntu, sans-serif;
+    font-size: 1.2em;
+    transition: 0.4s;
+    text-align: center;
+    min-width: 150px;
+}
+
+/* Dica: Adicione isso para o sublinhado não voltar quando passar o mouse */
+.botao_teste:hover {
+    text-decoration: none;
+    background-color: #34495e;
+    transform: scale(1.05);
+}
+
+.menu-inicial {
+    display: flex;
+    justify-content: center; /* Centraliza o grupo de botões */
+    align-items: center;     /* Alinha verticalmente se um botão for maior que outro */
+    gap: 15px;               /* DIMINUA OU AUMENTE AQUI o espaço entre eles */
+    margin-top: 30px;
+    flex-wrap: wrap;         /* No celular, se não couber lado a lado, ele quebra a linha */
 }
