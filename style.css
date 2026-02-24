@@ -61,10 +61,11 @@ button{
     font-size: 3em;
     font-family: ubuntu, sans-serif;
     border: #2c3e50;
-    background-color: aqua;
+    background-color: #2c3e50;
     width: 30%;
     text-align: center;
     align-items: center;
     border-radius: 20px;
     padding: 15px;
+    color: white;
 }
