@@ -1,3 +1,7 @@
+.teste{
+    background-color: #a7c7e2;
+}
+
 .tabuleiro {
     display: grid;
     /* Mudamos de 100px para 1fr para as colunas dividirem o espaço igualmente */
@@ -27,6 +31,15 @@
     transform: rotateY(180deg);
 }
 
+.texto2{
+    margin: auto; 
+    margin-top: 7%; 
+    margin-bottom: 7%;
+    text-align: center; 
+    font-family: ubuntu, sans-serif; 
+    font-size: 1.8em;
+}
+
 .frente, .tras {
     position: absolute;
     width: 100%;
@@ -37,19 +50,24 @@
     justify-content: center;
     font-size: 40px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    box-shadow: 4px 4px 8px rgba(48, 48, 48, 0.767);
+    border: solid #ffffff;
 }
 
 /* A TRÁS é a face com o "?" que vemos primeiro */
 .tras {
-    background-color: #2c3e50;
+    background-color: #152b40;
     color: white;
+    font-weight: bold;
+    font-family: monaco, sans-serif;
 }
 
 /* A FRENTE é onde fica o emoji. Ela já começa virada! */
 .frente {
-    background-color: #ecf0f1;
+    background-color: #ebfbff;
     transform: rotateY(180deg); 
+    font-family: ubuntu, sans-serif;
+    font-weight: bold;
 }
 
 button{
@@ -59,8 +77,8 @@ button{
     border: none;
     border-radius: 25px;
     transition: 0.4s;
-    color: white;
-    background-color: #2c3e50;
+    color: #152b40;
+    background-color: #ffffff;
     display: flex;
     text-align: center;
     align-items: center;
@@ -71,39 +89,42 @@ button{
     /* Ajustado para não sumir ou quebrar no celular */
     font-size: clamp(1.5em, 8vw, 3em);
     font-family: ubuntu, sans-serif;
-    background-color: #2c3e50;
+    background-color: #ffffff;
     /* Ajustamos de 30% para fit-content para o fundo 'abraçar' o texto */
     width: fit-content; 
     margin: 20px auto;
     text-align: center;
     border-radius: 20px;
     padding: 15px 30px;
-    color: white;
+    color: #152b40;
 }
 
-.botao_teste {
+.botao{
     display: inline-flex;    /* ESSENCIAL: Faz o link aceitar altura e largura de botão */
     align-items: center;     /* Centraliza o texto verticalmente */
     justify-content: center;  /* Centraliza o texto horizontalmente */
-    
     text-decoration: none;   /* REMOVE o sublinhado do link */
     cursor: pointer;
     padding: 15px 25px;
-    background-color: #2c3e50;
-    color: white;
+    background-color: #ffffff;
+    color: #152b40;
     border-radius: 25px;
     font-family: ubuntu, sans-serif;
     font-size: 1.2em;
     transition: 0.4s;
     text-align: center;
     min-width: 150px;
+    font-weight: bold; 
+    margin: 10px;
 }
 
 /* Dica: Adicione isso para o sublinhado não voltar quando passar o mouse */
-.botao_teste:hover {
+.botao:hover {
     text-decoration: none;
-    background-color: #34495e;
+    background-color: #152b40;
     transform: scale(1.05);
+    color: #ffffff;
+    border: solid #ffffff;
 }
 
 .menu-inicial {
