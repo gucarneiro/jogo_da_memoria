@@ -1,24 +1,25 @@
-.teste{
-    background-color: #a7c7e2;
+:root{
+    --darkBlue: #152b40;
+    --blackGrey: rgba(48, 48, 48, 0.767);
+
+}
+
+.pag{
+    background-color: #c0d4e3;
 }
 
 .tabuleiro {
     display: grid;
-    /* Mudamos de 100px para 1fr para as colunas dividirem o espaço igualmente */
     grid-template-columns: repeat(5, 1fr); 
-    /* Gap flexível baseado na largura da tela */
     gap: 2vw; 
     justify-content: center;
-    /* Centraliza e dá uma largura máxima para não esticar demais no monitor */
     margin: 30px auto;
     width: 95%;
     max-width: 600px; 
 }
 
 .carta {
-    /* Removido width fixo para usar o espaço do grid */
     width: 100%; 
-    /* Proporção da carta (2 de largura para 2.8 de altura) */
     aspect-ratio: 2 / 2.8; 
     position: relative;
     transform-style: preserve-3d;
@@ -26,7 +27,6 @@
     cursor: pointer;
 }
 
-/* Quando o JS adiciona a classe 'virada', a carta gira 180 graus */
 .carta.virada {
     transform: rotateY(180deg);
 }
@@ -44,7 +44,7 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    backface-visibility: hidden; /* Oculta a parte de trás da div */
+    backface-visibility: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -54,17 +54,15 @@
     border: solid #ffffff;
 }
 
-/* A TRÁS é a face com o "?" que vemos primeiro */
 .tras {
-    background-color: #152b40;
+    background-color: var(--darkBlue);
     color: white;
     font-weight: bold;
     font-family: monaco, sans-serif;
 }
 
-/* A FRENTE é onde fica o emoji. Ela já começa virada! */
 .frente {
-    background-color: #ebfbff;
+    background-color: #ffffff;
     transform: rotateY(180deg); 
     font-family: ubuntu, sans-serif;
     font-weight: bold;
@@ -77,7 +75,7 @@ button{
     border: none;
     border-radius: 25px;
     transition: 0.4s;
-    color: #152b40;
+    color: var(--darkBlue);
     background-color: #ffffff;
     display: flex;
     text-align: center;
@@ -86,28 +84,26 @@ button{
 }
 
 .texto {
-    /* Ajustado para não sumir ou quebrar no celular */
     font-size: clamp(1.5em, 8vw, 3em);
     font-family: ubuntu, sans-serif;
     background-color: #ffffff;
-    /* Ajustamos de 30% para fit-content para o fundo 'abraçar' o texto */
     width: fit-content; 
     margin: 20px auto;
     text-align: center;
-    border-radius: 20px;
-    padding: 15px 30px;
-    color: #152b40;
+    border-radius: 30px;
+    padding: 12px;
+    color: var(--darkBlue);
 }
 
 .botao{
-    display: inline-flex;    /* ESSENCIAL: Faz o link aceitar altura e largura de botão */
-    align-items: center;     /* Centraliza o texto verticalmente */
-    justify-content: center;  /* Centraliza o texto horizontalmente */
-    text-decoration: none;   /* REMOVE o sublinhado do link */
+    display: inline-flex;   
+    align-items: center;     
+    justify-content: center; 
+    text-decoration: none;   
     cursor: pointer;
     padding: 15px 25px;
     background-color: #ffffff;
-    color: #152b40;
+    color: var(--darkBlue);
     border-radius: 25px;
     font-family: ubuntu, sans-serif;
     font-size: 1.2em;
@@ -118,10 +114,9 @@ button{
     margin: 10px;
 }
 
-/* Dica: Adicione isso para o sublinhado não voltar quando passar o mouse */
 .botao:hover {
     text-decoration: none;
-    background-color: #152b40;
+    background-color: var(--darkBlue);
     transform: scale(1.05);
     color: #ffffff;
     border: solid #ffffff;
@@ -129,9 +124,9 @@ button{
 
 .menu-inicial {
     display: flex;
-    justify-content: center; /* Centraliza o grupo de botões */
-    align-items: center;     /* Alinha verticalmente se um botão for maior que outro */
-    gap: 15px;               /* DIMINUA OU AUMENTE AQUI o espaço entre eles */
+    justify-content: center; 
+    align-items: center;     
+    gap: 15px;           
     margin-top: 30px;
-    flex-wrap: wrap;         /* No celular, se não couber lado a lado, ele quebra a linha */
+    flex-wrap: wrap;         
 }
